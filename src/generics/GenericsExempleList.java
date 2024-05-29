@@ -6,7 +6,7 @@ import java.util.List;
 public class GenericsExempleList {
     public static void main(String[] args) {
         // Exemplos sem Generics
-        List listaSemGenerics = new ArrayList();
+        List listaSemGenerics = new ArrayList<>();
         listaSemGenerics.add("Elemento 1");
         listaSemGenerics.add(10); // Permite adicionar qualquer tipo de objeto
 
