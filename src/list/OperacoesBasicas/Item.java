@@ -3,43 +3,33 @@ package list.OperacoesBasicas;
 public class Item {
     // Attributes
     private String name;
-    private Double price;
     private int quantity;
+    private Double price;
 
-    public Item(String name, Double price, int quantity) {
+    public Item(String name, int quantity, Double price) {
         this.name = name;
-        this.price = price;
         this.quantity = quantity;
+        this.price = price;
     }
 
+    @Override
     public String toString() {
-       return "Exibindo Items do Carrinho de Compras --> \n" +
-               "Name: " + getName() + "\n" +
-               "Price: " + getPrice() + "\n" +
-               "Quantity: " + getQuantity() + "\n";
+        return "Item --> " + "\n" +
+                "Name: " + name + "\n" +
+                "Quantity: " + quantity + "\n" +
+                "Price: " + price + "\n" +
+                "<-- \n";
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
     public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public Double getPrice() {
+        return price;
     }
 }

@@ -11,68 +11,61 @@ public class CarrinhoDeCompras {
         this.itemCarrinho = new ArrayList<>();
     }
 
-    public void adicionarItem(String name, Double price, int quantity) {
-        itemCarrinho.add(new Item(name,price,quantity));
+    public void adicionarItem(String name, int quantity, Double price) {
+        itemCarrinho.add(new Item(name, quantity, price));
     }
 
-    public void removerItem(String name) {
-        List<Item> removeItem = new ArrayList<>();
+    public void removeItem(String name) {
+        List<Item> removeItems = new ArrayList<>();
         if (!itemCarrinho.isEmpty()) {
             for (Item i : itemCarrinho) {
                 if (i.getName().equalsIgnoreCase(name)) {
-                    removeItem.add(i);
+                    removeItems.add(i);
                 }
             }
-            itemCarrinho.removeAll(removeItem);
+            itemCarrinho.removeAll(removeItems);
         } else {
-            System.out.println("Sua Lista de Compras está Vazia.");
+            System.out.println("Lista Vazia!");
         }
     }
+
     public Double calcularValorTotal() {
-        Double valorTotal = 0.0;
+        Double valorTotal = 0d;
         if (!itemCarrinho.isEmpty()) {
             for (Item i : itemCarrinho) {
-                Double valor = i.getPrice() * i.getQuantity();
-                valorTotal += valor;
+                Double valorItem = i.getPrice() * i.getQuantity();
+                valorTotal += valorItem;
             }
             return valorTotal;
         } else {
-            throw new RuntimeException("A lista está vazia!");
+            throw new RuntimeException("Lista Vazia!");
         }
+
     }
 
     public void exibirItens() {
         if (!itemCarrinho.isEmpty()) {
-            System.out.println(this.itemCarrinho);
-        } else {
-            System.out.println("A lista está vazia!");
+            System.out.println(itemCarrinho);
+            System.out.println("O Valor Total da sua compra é de: " + calcularValorTotal() + "\n");
+        }else {
+            System.out.println("Lista Vazia!");
         }
     }
 
     public static void main(String[] args) {
-// Criando uma instância do carrinho de compras
-        // Criando uma instancia do carrinho de compras
         CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
 
-        // Adicionando os itens ao carrinho
-        carrinho.adicionarItem("Lapis", 2.0,3);
-        carrinho.adicionarItem("Lápis", 2d, 3);
-        carrinho.adicionarItem("Caderno", 35d, 1);
-        carrinho.adicionarItem("Borracha", 2d, 2);
+        carrinho.adicionarItem("Cadeira",1,225.50);
+        carrinho.adicionarItem("Cadeira",1,225.50);
+        carrinho.adicionarItem("Mesa",1,125.00);
+        carrinho.adicionarItem("Monitor",1,625.00);
+        carrinho.adicionarItem("Teclado",1,280.00);
+        carrinho.adicionarItem("Mouse",1,250.00);
 
-        // Exibindo os itens no carrinho
         carrinho.exibirItens();
 
-        // Calculando e exibindo o valor total da compra
-        System.out.println("O Valor total da compra é: " + carrinho.calcularValorTotal());
-
-        // Removendo os itens no carrinho
-        carrinho.removerItem("Lapis");
-
-        // Exibindo os itens no carrinho
+        carrinho.removeItem("Cadeira");
+        carrinho.adicionarItem("Cadeira",1,225.50);
         carrinho.exibirItens();
-
-        // Calculando e exibindo o valor total da compra
-        System.out.println("O Valor total da compra é: " + carrinho.calcularValorTotal());
     }
 }
