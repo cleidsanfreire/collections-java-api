@@ -43,6 +43,31 @@ public class SiteAnimes {
         }
     }
 
+    public List<Anime> searchForIntervalSeason(int seasonStart, int seasonEnd) {
+        List<Anime> animesInterval = new ArrayList<>();
+        if (!animesList.isEmpty()) {
+            for (Anime a : animesList) {
+                if (a.getSeason() >= seasonStart && a.getSeason() <= seasonEnd) {
+                    animesInterval.add(a);
+                }
+            }
+        }
+        return animesInterval;
+    }
+
+    public Anime search(String name) {
+        Anime animeTtile = null;
+        if (!animesList.isEmpty()) {
+            for (Anime a : animesList) {
+                if (a.getName().equalsIgnoreCase(name)) {
+                    animeTtile = a;
+                    break;
+                }
+            }
+        }
+        return animeTtile;
+    }
+
     public static void main(String[] args) {
         SiteAnimes anime = new SiteAnimes();
 
@@ -51,10 +76,19 @@ public class SiteAnimes {
         anime.addAnime("Dragon Ball Z", 250, 5, "Legendado");
         anime.addAnime("Fairy Tail", 366, 7, "Legendado");
 
+        System.out.println("Exibindo Animes.");
         anime.exibirAnime();
 
-        anime.removerAnime("Fairy Tail");
+        System.out.println("Removendo Animes.....");
+        //anime.removerAnime("Fairy Tail");
 
+        System.out.println("Procurando por Intervalo de Temporadas.");
+        System.out.println(anime.searchForIntervalSeason(0,10));
+
+        System.out.println("Procurando por Nome do Anime.");
+        System.out.println(anime.search("Naruto"));
+
+        System.out.println("Exibindo Animes.");
         anime.exibirAnime();
     }
 }
