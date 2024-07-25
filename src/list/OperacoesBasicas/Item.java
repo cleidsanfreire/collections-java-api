@@ -6,6 +6,7 @@ public class Item {
     private int quantity;
     private Double price;
 
+    // Constructor
     public Item(String name, int quantity, Double price) {
         this.name = name;
         this.quantity = quantity;

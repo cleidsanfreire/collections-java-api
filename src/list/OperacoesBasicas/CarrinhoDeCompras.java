@@ -56,11 +56,11 @@ public class CarrinhoDeCompras {
         CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
 
         carrinho.adicionarItem("Cadeira",1,225.50);
-        carrinho.adicionarItem("Cadeira",1,225.50);
-        carrinho.adicionarItem("Mesa",1,125.00);
+        carrinho.adicionarItem("Cadeira",2,225.50);
+        carrinho.adicionarItem("Mesa",2,125.00);
         carrinho.adicionarItem("Monitor",1,625.00);
         carrinho.adicionarItem("Teclado",1,280.00);
-        carrinho.adicionarItem("Mouse",1,250.00);
+        carrinho.adicionarItem("Mouse",2,250.00);
 
         carrinho.exibirItens();
 
