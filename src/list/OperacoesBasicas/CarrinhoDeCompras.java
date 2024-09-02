@@ -64,7 +64,7 @@ public class CarrinhoDeCompras {
 
         carrinho.exibirItens();
 
-        carrinho.removeItem("Cadeira");
+        carrinho.removeItem("Cadeiras");
         carrinho.adicionarItem("Cadeira",1,225.50);
         carrinho.exibirItens();
     }
